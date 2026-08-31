@@ -120,7 +120,7 @@ async function addSingleRule(context) {
   const items = ruleFiles.map(file => {
     let description = 'AI Guideline';
     if (file === 'simple-english.md') description = 'Simple, clear, jargon-free English';
-    if (file === 'no-pills.md') description = 'Human UI design, eliminate AI slop & pill badges';
+    if (file === 'no-pills.md') description = 'Human UI design, eliminate AI slop, card fatigue & buzzwords';
     if (file === 'dry.md') description = "Don't Repeat Yourself & single source of truth";
     if (file === 'solid.md') description = 'SOLID architecture principles';
     if (file === 'no-mocks.md') description = 'Real integration tests over brittle mocks';
@@ -158,6 +158,114 @@ async function addSingleRule(context) {
 }
 
 /**
+ * Audit active file for AI Slop, accessibility issues, and rule violations
+ */
+let outputChannel;
+function getOutputChannel() {
+  if (!outputChannel) {
+    outputChannel = vscode.window.createOutputChannel('Aigent AI Slop Audit');
+  }
+  return outputChannel;
+}
+
+function auditCurrentFile() {
+  const editor = vscode.window.activeTextEditor;
+  if (!editor) {
+    vscode.window.showWarningMessage('Aigent: No active file open to audit.');
+    return;
+  }
+
+  const document = editor.document;
+  const text = document.getText();
+  const lines = text.split(/\r?\n/);
+  const findings = [];
+
+  const emojiRegex = /[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/u;
+  const buzzwords = [
+    /\bsupercharge\b/i,
+    /\bunleash\b/i,
+    /\bunlock the power\b/i,
+    /\bseamless integration\b/i,
+    /\bin today's fast-paced\b/i,
+    /\bgame-changing platform\b/i,
+    /\bnot only .*? but also\b/i
+  ];
+
+  lines.forEach((line, index) => {
+    const lineNum = index + 1;
+
+    // 1. Raw Emojis
+    if (emojiRegex.test(line)) {
+      findings.push({
+        line: lineNum,
+        severity: 'Warning',
+        message: 'Raw emoji detected. Replace with a dedicated SVG or icon library (e.g., Lucide/Heroicons).'
+      });
+    }
+
+    // 2. Default purple/indigo AI gradient
+    if (/from-purple-500 to-indigo-600|#6366f1|#a855f7/i.test(line)) {
+      findings.push({
+        line: lineNum,
+        severity: 'Warning',
+        message: 'Generic purple/indigo AI gradient detected. Use an intentional, brand-specific color palette.'
+      });
+    }
+
+    // 3. Pitch black background (#000000 / bg-black)
+    if (/#000000\b|bg-black\b/i.test(line) && !/border|text/i.test(line)) {
+      findings.push({
+        line: lineNum,
+        severity: 'Info',
+        message: 'Pitch black background (#000000) causes visual halation. Consider layered dark tones (#0c0d0e, #0f172a).'
+      });
+    }
+
+    // 4. Missing outline replacement
+    if (/outline-none/i.test(line) && !/focus-visible:ring|focus:ring/i.test(line)) {
+      findings.push({
+        line: lineNum,
+        severity: 'Error',
+        message: 'Keyboard outline disabled without visible focus ring replacement (accessibility violation).'
+      });
+    }
+
+    // 5. Copywriting buzzwords
+    for (const pattern of buzzwords) {
+      if (pattern.test(line)) {
+        findings.push({
+          line: lineNum,
+          severity: 'Warning',
+          message: `AI copywriting cliché detected (${line.trim().slice(0, 40)}...). Use concrete, direct terms.`
+        });
+        break;
+      }
+    }
+  });
+
+  const channel = getOutputChannel();
+  channel.clear();
+  channel.appendLine(`=======================================================`);
+  channel.appendLine(`🔍 Aigent AI Slop & UI Audit Report: ${path.basename(document.fileName)}`);
+  channel.appendLine(`Path: ${document.fileName}`);
+  channel.appendLine(`Total Lines: ${lines.length} | Findings: ${findings.length}`);
+  channel.appendLine(`=======================================================\n`);
+
+  if (findings.length === 0) {
+    channel.appendLine(`✔ Clean! No common AI slop, accessibility, or design clichés detected.`);
+    vscode.window.showInformationMessage(`Aigent Audit: 0 issues found in ${path.basename(document.fileName)}! 🎉`);
+  } else {
+    findings.forEach(f => {
+      channel.appendLine(`[Line ${f.line}] [${f.severity}] ${f.message}`);
+    });
+    channel.appendLine(`\n-------------------------------------------------------`);
+    channel.appendLine(`Refer to .agents/rules/no-pills.md & no-emojis.md for full guidelines.`);
+    channel.show(true);
+    vscode.window.showWarningMessage(`Aigent Audit: Found ${findings.length} potential AI slop / accessibility issue(s). Check Output channel.`);
+  }
+}
+
+/**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
@@ -173,6 +281,10 @@ function activate(context) {
     return addSingleRule(context);
   });
 
+  const auditFileCmd = vscode.commands.registerCommand('aigent.auditFile', () => {
+    return auditCurrentFile();
+  });
+
   const openRulesFolderCmd = vscode.commands.registerCommand('aigent.openRulesFolder', () => {
     const workspaceFolders = vscode.workspace.workspaceFolders;
     if (!workspaceFolders || workspaceFolders.length === 0) return;
@@ -184,7 +296,7 @@ function activate(context) {
     }
   });
 
-  context.subscriptions.push(initCmd, initForceCmd, addSingleRuleCmd, openRulesFolderCmd);
+  context.subscriptions.push(initCmd, initForceCmd, addSingleRuleCmd, auditFileCmd, openRulesFolderCmd);
 }
 
 function deactivate() {}

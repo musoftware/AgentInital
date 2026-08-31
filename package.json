@@ -1,16 +1,17 @@
 {
   "name": "aigent-workspace",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "private": true,
   "description": "Monorepo for Aigent CLI & VS Code / Antigravity Extension",
+  "type": "module",
   "workspaces": [
     "cli",
     "extension"
   ],
   "scripts": {
     "cli:link": "cd cli && npm link",
-    "extension:sync": "node extension/scripts/sync-templates.js",
-    "build": "npm run extension:sync"
+    "sync:all": "node scripts/sync-all.js",
+    "build": "node scripts/sync-all.js"
   },
   "keywords": [
     "ai",

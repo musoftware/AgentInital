@@ -32,7 +32,14 @@ Apply this rule whenever a request:
 
 ---
 
-## 3. Example Structure
+## 3. When NOT to Ask (Avoid Over-Questioning)
+- **Clear & Feasible Tasks**: If the request has an obvious, standard implementation, execute it immediately without unnecessary interruptions.
+- **Trivial Tweaks**: Minor styling adjustments, obvious bug fixes, and routine refactors should be executed directly.
+- **Approved Plans**: Do not ask redundant questions about steps the user has already approved.
+
+---
+
+## 4. Example Structure
 
 ```markdown
 ### Concern

@@ -1,8 +1,8 @@
 {
   "name": "aigent-vscode",
   "displayName": "Aigent - AI Rules & Guidelines Initializer",
-  "description": "One-click initializer for AI coding rules, standards, and markdown files in Antigravity & VS Code",
-  "version": "1.0.2",
+  "description": "One-click initializer & AI slop auditor for AI coding rules, standards, and markdown files in Antigravity & VS Code",
+  "version": "1.1.0",
   "publisher": "mahmoud-osama",
   "engines": {
     "vscode": "^1.74.0"
@@ -10,7 +10,8 @@
   "categories": [
     "Other",
     "Programming Languages",
-    "Snippets"
+    "Snippets",
+    "Linters"
   ],
   "keywords": [
     "ai",
@@ -19,6 +20,7 @@
     "guidelines",
     "markdown",
     "standards",
+    "audit",
     "prompt-engineering"
   ],
   "main": "./src/extension.js",
@@ -26,6 +28,7 @@
     "onCommand:aigent.init",
     "onCommand:aigent.initForce",
     "onCommand:aigent.addSingleRule",
+    "onCommand:aigent.auditFile",
     "onCommand:aigent.openRulesFolder"
   ],
   "contributes": {
@@ -46,6 +49,11 @@
         "category": "Aigent"
       },
       {
+        "command": "aigent.auditFile",
+        "title": "Aigent: Audit Current File for AI Slop & Accessibility",
+        "category": "Aigent"
+      },
+      {
         "command": "aigent.openRulesFolder",
         "title": "Aigent: Open Rules Folder",
         "category": "Aigent"
@@ -59,6 +67,12 @@
           "when": "explorerResourceIsFolder"
         }
       ],
+      "editor/context": [
+        {
+          "command": "aigent.auditFile",
+          "group": "1_modification@9"
+        }
+      ],
       "commandPalette": [
         {
           "command": "aigent.init"
@@ -68,6 +82,9 @@
         },
         {
           "command": "aigent.addSingleRule"
+        },
+        {
+          "command": "aigent.auditFile"
         },
         {
           "command": "aigent.openRulesFolder"
