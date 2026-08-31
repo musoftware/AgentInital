@@ -6,7 +6,12 @@ import { colors, log } from './utils/colors.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
-const TEMPLATES_DIR = path.join(ROOT_DIR, 'templates');
+const SHARED_TEMPLATES_DIR = path.resolve(ROOT_DIR, '../shared/templates');
+const LOCAL_TEMPLATES_DIR = path.resolve(ROOT_DIR, 'templates');
+
+const TEMPLATES_DIR = fs.existsSync(SHARED_TEMPLATES_DIR) 
+  ? SHARED_TEMPLATES_DIR 
+  : LOCAL_TEMPLATES_DIR;
 
 export function showHelp() {
   console.log(`

@@ -1,25 +1,24 @@
 {
-  "name": "aigent",
+  "name": "aigent-workspace",
   "version": "1.0.0",
-  "description": "CLI tool to initialize AI coding rules, standards, and markdown files for Antigravity and modern AI workflows",
-  "type": "module",
-  "main": "src/index.js",
-  "bin": {
-    "aigent": "./bin/cli.js"
+  "private": true,
+  "description": "Monorepo for Aigent CLI & VS Code / Antigravity Extension",
+  "workspaces": [
+    "cli",
+    "extension"
+  ],
+  "scripts": {
+    "cli:link": "cd cli && npm link",
+    "extension:sync": "node extension/scripts/sync-templates.js",
+    "build": "npm run extension:sync"
   },
   "keywords": [
     "ai",
     "antigravity",
     "rules",
-    "coding-standards",
-    "prompt-engineering",
+    "vscode-extension",
     "cli"
   ],
   "author": "Mahmoud Osama",
-  "license": "MIT",
-  "files": [
-    "bin",
-    "src",
-    "templates"
-  ]
+  "license": "MIT"
 }

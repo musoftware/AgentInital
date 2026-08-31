@@ -1,0 +1,24 @@
+{
+  "name": "aigent",
+  "version": "1.0.0",
+  "description": "CLI tool to initialize AI coding rules, standards, and markdown files for Antigravity, Cursor, and modern AI workflows",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "aigent": "./bin/cli.js"
+  },
+  "keywords": [
+    "ai",
+    "antigravity",
+    "rules",
+    "coding-standards",
+    "cli"
+  ],
+  "author": "Mahmoud Osama",
+  "license": "MIT",
+  "files": [
+    "bin",
+    "src",
+    "templates"
+  ]
+}

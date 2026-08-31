@@ -1,0 +1,86 @@
+{
+  "name": "aigent-vscode",
+  "displayName": "Aigent - AI Rules & Guidelines Initializer",
+  "description": "One-click initializer for AI coding rules, standards, and markdown files in Antigravity & VS Code",
+  "version": "1.0.0",
+  "publisher": "mahmoud-osama",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "ai",
+    "antigravity",
+    "rules",
+    "guidelines",
+    "markdown",
+    "standards",
+    "prompt-engineering"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onCommand:aigent.init",
+    "onCommand:aigent.initForce",
+    "onCommand:aigent.addSingleRule",
+    "onCommand:aigent.openRulesFolder"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "aigent.init",
+        "title": "Aigent: Initialize AI Rules & Guidelines (Antigravity)",
+        "category": "Aigent"
+      },
+      {
+        "command": "aigent.initForce",
+        "title": "Aigent: Re-initialize AI Rules (Force Overwrite)",
+        "category": "Aigent"
+      },
+      {
+        "command": "aigent.addSingleRule",
+        "title": "Aigent: Add Specific Rule...",
+        "category": "Aigent"
+      },
+      {
+        "command": "aigent.openRulesFolder",
+        "title": "Aigent: Open Rules Folder",
+        "category": "Aigent"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "aigent.init",
+          "group": "7_modification@1",
+          "when": "explorerResourceIsFolder"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "aigent.init"
+        },
+        {
+          "command": "aigent.initForce"
+        },
+        {
+          "command": "aigent.addSingleRule"
+        },
+        {
+          "command": "aigent.openRulesFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "node ./scripts/sync-templates.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@vscode/vsce": "^2.24.0"
+  }
+}
