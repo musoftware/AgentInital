@@ -125,6 +125,8 @@ async function addSingleRule(context) {
     if (file === 'solid.md') description = 'SOLID architecture principles';
     if (file === 'no-mocks.md') description = 'Real integration tests over brittle mocks';
     if (file === 'code-standards.md') description = 'Type safety, defensive error handling';
+    if (file === 'handling-illogical-requests.md') description = 'Clarify illogical or ambiguous requests with multiple-choice options';
+    if (file === 'no-emojis.md') description = 'No raw emojis, use dedicated icon libraries';
 
     return {
       label: file,

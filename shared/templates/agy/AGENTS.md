@@ -13,6 +13,7 @@ Detailed rules are maintained in individual markdown files under `.agents/rules/
 5. **[No Mocks / Real Testing](file:///.agents/rules/no-mocks.md)**: Real integration tests over brittle, deep mock layers.
 6. **[Code Standards](file:///.agents/rules/code-standards.md)**: Strict types, defensive error handling, clean structure, and rigorous verification.
 7. **[Handling Illogical Requests](file:///.agents/rules/handling-illogical-requests.md)**: Clarify contradictory, infeasible, or ambiguous requests with structured multiple-choice options before implementing.
+8. **[No Emojis / Dedicated Icons](file:///.agents/rules/no-emojis.md)**: Never use raw emojis in UI, code, or documentation. Use dedicated icon libraries or clean SVGs instead.
 
 ---
 

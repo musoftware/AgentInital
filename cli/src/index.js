@@ -37,6 +37,8 @@ ${colors.bold}INCLUDED RULES:${colors.reset}
   ${colors.dim}•${colors.reset} solid.md            SOLID architecture & design principles
   ${colors.dim}•${colors.reset} no-mocks.md         Pragmatic testing (real integration over fragile mocks)
   ${colors.dim}•${colors.reset} code-standards.md   Type safety, defensive error handling, verification
+  ${colors.dim}•${colors.reset} handling-illogical-requests.md  Clarify illogical/ambiguous requests with options
+  ${colors.dim}•${colors.reset} no-emojis.md         No raw emojis, use dedicated icon libraries
   ${colors.dim}•${colors.reset} AGENTS.md           Master agent guidelines file
 
 ${colors.bold}EXAMPLES:${colors.reset}

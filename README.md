@@ -43,6 +43,8 @@ AgentInital/
 | `.agents/rules/solid.md` | SOLID software design principles (SRP, OCP, LSP, ISP, DIP) |
 | `.agents/rules/no-mocks.md` | Real integration testing over brittle, deep mock setups |
 | `.agents/rules/code-standards.md` | Type safety, defensive error handling, verification checklist |
+| `.agents/rules/handling-illogical-requests.md` | Clarify contradictory, infeasible, or ambiguous requests with structured options |
+| `.agents/rules/no-emojis.md` | Prohibit raw emojis and mandate dedicated icon libraries |
 | `AGENTS.md` | Root index file connecting and referencing all rules |
 
 ---
