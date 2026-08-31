@@ -1,38 +1,51 @@
 # Human UI Design & Anti-AI Slop Guidelines
 
 ## Core Rule
-Eliminate generic AI-generated design clichés ("AI slop") and build authentic, bespoke, human, and production-grade user interfaces.
+Eliminate generic AI-generated design clichés ("AI slop"), noisy card fatigue, buzzword copy overload, and synthetic templates. Build authentic, bespoke, human, and production-grade user interfaces.
 
 ---
 
-## 1. Eliminate The "Pill" & Badge Addiction
-- **Stop putting pill-shaped badges above every headline** (e.g. `✨ Introducing Version 2.0 ✨` or `🚀 AI Powered Solution`).
-- Reserve badges strictly for true status indicators (e.g., `Active`, `Pending`, `Failed`).
-- Do NOT use pills as decorative noise or section sub-headers.
+## 1. Eliminate Card Fatigue & Visual Noise
+- **Stop Wrapping Everything in Cards**: Do not force every single sentence, bullet point, or trivial feature into a bordered, shadowed card.
+- **Maintain High Signal-to-Noise Ratio**: Minimize visual containers, glowing borders, and redundant wrapper boxes. Let typography, proximity, and whitespace structure the content.
+- **No Pointless Bento Grids**: Do not force timelines, tables, sequential steps, or dense data into an asymmetric 4–6 box bento grid. Choose the layout that best fits the data (e.g., clean tables, linear lists, tabbed views, or editorial layouts).
+- **No Fake Floating Glass**: Avoid decorative blurred glass cards (`backdrop-blur-md bg-white/10`) hovering aimlessly with no actionable data.
 
 ---
 
-## 2. Eliminate AI Template Clichés
-- **No Generic Purple/Blue Neon Gradients**: Avoid the default generic AI gradient mesh (`linear-gradient(135deg, #6366f1, #a855f7)`). Use curated, intentional color palettes tailored to the brand domain.
-- **No Pointless Bento Grids**: Do not force every feature section into an asymmetric 4-box bento grid with random floating glass icons.
-- **No Fake Floating Glass Cards**: Avoid decorative blurred glass cards (`backdrop-blur-md bg-white/10`) hovering aimlessly with no actionable data.
-- **No Decorative Star/Sparkle Icons**: Remove unnecessary emoji/sparkle icons (`✨`, `⚡`, `🔮`) cluttering titles.
+## 2. Eliminate Copywriting Clichés & Text Inflation ("The AI Voice")
+- **No Buzzword Soup**: Strictly avoid empty corporate filler phrases:
+  - *"In today's fast-paced digital world / landscape..."*
+  - *"Unlock your potential / Supercharge your workflow..."*
+  - *"Seamless integration / Cutting-edge solutions / Game-changing platform..."*
+  - *"Not only does it do X, but it also empowers you to do Y."*
+- **No Em Dash Addiction**: Avoid excessive em dashes (`—`) artificially connecting fragmented thoughts in titles and subheaders.
+- **Write Concrete, Product-Specific Copy**: State exactly what the tool does in clear, human, and measurable terms with real domain terminology.
 
 ---
 
-## 3. Real, Production-Grade UI Principles
-1. **Typography Hierarchy**:
-   - Use high-quality, distinct typography (e.g., Inter, Plus Jakarta Sans, Outfit, Geist, JetBrains Mono for code).
-   - Establish a clear hierarchy using font weight, scale, and line height rather than excessive borders and backgrounds.
+## 3. Eliminate The "Pill Badge" & Decorative Sparkle Spam
+- **Stop Putting Pill Badges Above Every Heading**: (e.g., `✨ Introducing Version 2.0 ✨` or `🚀 AI-Powered Solution`).
+- **Reserve Badges for Real Status**: Use badges strictly for meaningful state indicators (`Active`, `Pending`, `Failed`, `Verified`).
+- **No Decorative Emojis/Sparkles**: Remove random sparkle (`✨`), lightning (`⚡`), and rocket (`🚀`) icons cluttering headers and buttons.
 
-2. **Intentional Whitespace**:
-   - Give content room to breathe without excessive empty padding.
-   - Group related elements logically using proximity rather than wrapping everything in nested bordered boxes.
+---
 
-3. **Subtle & Purposeful Motion**:
-   - Micro-interactions on buttons, inputs, and state changes (150ms - 250ms ease-out).
-   - No slow, dizzying 3D scroll effects or perpetual bouncing animations.
+## 4. Eliminate Synthetic Visual Homogeneity
+- **No Default Purple/Indigo Neon Mesh**: Avoid the generic AI gradient combo (`linear-gradient(135deg, #6366f1, #a855f7)`) on dark slate backgrounds with purple ambient blur orbs.
+- **Intentional Brand Palettes**: Use curated, domain-specific color systems (e.g., warm off-whites, deep navy, slate monochrome, terracotta, forest greens).
+- **Distinct Typography**: Avoid unadjusted default Inter everywhere. Pair distinctive heading typefaces (Plus Jakarta Sans, Outfit, Cabinet Grotesk, Geist) with crisp, readable body typefaces.
 
-4. **Functional Color Roles**:
-   - Background, Surface, Primary, Muted, Border, and semantic status colors (Success, Warning, Destructive).
-   - High contrast ratios (WCAG AA compliant).
+---
+
+## 5. Eliminate Fake Social Proof & Meaningless Metrics
+- **No Generic Stat Counters**: Avoid floating cards with unverified claims (`"10,000+ Teams"`, `"99.9% Efficiency"`, `"5x Faster"`).
+- **Authentic Social Proof**: Use verifiable customer quotes, real case studies, logo grids, or actual domain metrics.
+
+---
+
+## 6. Real Production-Grade UI Principles
+1. **Typography Hierarchy**: Establish visual rhythm using scale, weight, and line height rather than nested borders and boxes.
+2. **Intentional Whitespace**: Give elements breathing room and use proximity to group related items naturally.
+3. **Subtle & Purposeful Motion**: Micro-interactions on buttons, inputs, and states (150ms–250ms ease-out). No dizzying scroll effects or perpetual bouncing.
+4. **Functional Color Roles**: Define semantic tokens for background, surface, primary, muted, border, and statuses (Success, Warning, Destructive) with WCAG AA contrast ratios.
