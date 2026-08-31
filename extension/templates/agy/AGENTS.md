@@ -12,6 +12,7 @@ Detailed rules are maintained in individual markdown files under `.agents/rules/
 4. **[SOLID Principles](file:///.agents/rules/solid.md)**: Decoupled, extensible architecture following SRP, OCP, LSP, ISP, and DIP.
 5. **[No Mocks / Real Testing](file:///.agents/rules/no-mocks.md)**: Real integration tests over brittle, deep mock layers.
 6. **[Code Standards](file:///.agents/rules/code-standards.md)**: Strict types, defensive error handling, clean structure, and rigorous verification.
+7. **[Handling Illogical Requests](file:///.agents/rules/handling-illogical-requests.md)**: Clarify contradictory, infeasible, or ambiguous requests with structured multiple-choice options before implementing.
 
 ---
 
