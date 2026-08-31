@@ -3,7 +3,8 @@
   "displayName": "Aigent - AI Rules & Guidelines Initializer",
   "description": "One-click initializer & AI slop auditor for AI coding rules, standards, and markdown files in Antigravity & VS Code",
   "version": "1.1.0",
-  "publisher": "mahmoud-osama",
+  "publisher": "mahmoud-amin",
+  "author": "Mahmoud Amin",
   "engines": {
     "vscode": "^1.74.0"
   },
