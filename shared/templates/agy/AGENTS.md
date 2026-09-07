@@ -25,6 +25,7 @@ Detailed rules are maintained in individual markdown files under `.agents/rules/
 17. **[Immutability & Pure Functions](file:///.agents/rules/immutability.md)**: Zero shared mutable state, immutable collections, pure functions by default, and explicit mutation verbs.
 18. **[Naming & Dead Code Hygiene](file:///.agents/rules/naming-and-dead-code.md)**: Intent-revealing names, zero dead/commented code, clean imports, and the Boy Scout rule.
 19. **[Dependency Direction](file:///.agents/rules/dependency-direction.md)**: Depend on abstractions not concretions, Law of Demeter, and Ports & Adapters architecture.
+20. **[Visual Hierarchy & UX](file:///.agents/rules/visual-hierarchy-and-ux.md)**: Clear focal points, 3-level typography scale, intentional whitespace, action priority, and predictable user feedback.
 
 ---
 

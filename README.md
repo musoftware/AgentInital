@@ -38,7 +38,8 @@ AgentInital/
 │           │   ├── yagni-kiss.md
 │           │   ├── immutability.md
 │           │   ├── naming-and-dead-code.md
-│           │   └── dependency-direction.md
+│           │   ├── dependency-direction.md
+│           │   └── visual-hierarchy-and-ux.md
 │           └── AGENTS.md
 ├── package.json                  # Monorepo root with npm workspaces
 └── README.md
@@ -69,6 +70,7 @@ AgentInital/
 | `.agents/rules/immutability.md` | Zero shared mutable state, immutable collections, pure functions, and explicit mutation verbs |
 | `.agents/rules/naming-and-dead-code.md` | Intent-revealing names, zero dead/commented code, clean imports, and the Boy Scout rule |
 | `.agents/rules/dependency-direction.md` | Depend on abstractions not concretions, Law of Demeter, and Ports & Adapters architecture |
+| `.agents/rules/visual-hierarchy-and-ux.md` | Clear focal points, 3-level typography scale, intentional whitespace, action priority, and predictable user feedback |
 | `AGENTS.md` | Root index file connecting and referencing all rules |
 
 ---

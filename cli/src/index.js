@@ -50,6 +50,7 @@ ${colors.bold}INCLUDED RULES:${colors.reset}
   ${colors.dim}•${colors.reset} immutability.md      Zero shared mutable state, pure functions, and explicit effect verbs
   ${colors.dim}•${colors.reset} naming-and-dead-code.md Intent-revealing names, zero dead/commented code, clean imports
   ${colors.dim}•${colors.reset} dependency-direction.md Inversion of control, Law of Demeter, and Ports & Adapters
+  ${colors.dim}•${colors.reset} visual-hierarchy-and-ux.md Visual hierarchy, typography contrast, whitespace, and UX flow
   ${colors.dim}•${colors.reset} AGENTS.md           Master agent guidelines file
 
 ${colors.bold}EXAMPLES:${colors.reset}

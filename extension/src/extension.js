@@ -138,6 +138,7 @@ async function addSingleRule(context) {
     if (file === 'immutability.md') description = 'Zero shared mutable state, pure functions, and explicit effect verbs';
     if (file === 'naming-and-dead-code.md') description = 'Intent-revealing names, zero dead/commented code, clean imports';
     if (file === 'dependency-direction.md') description = 'Inversion of control, Law of Demeter, and Ports & Adapters';
+    if (file === 'visual-hierarchy-and-ux.md') description = 'Visual hierarchy, typography scale, whitespace, and UX flow';
 
     return {
       label: file,
