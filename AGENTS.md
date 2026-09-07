@@ -14,6 +14,10 @@ Detailed rules are maintained in individual markdown files under `.agents/rules/
 6. **[Code Standards](file:///.agents/rules/code-standards.md)**: Strict types, defensive error handling, clean structure, and rigorous verification.
 7. **[Handling Illogical Requests](file:///.agents/rules/handling-illogical-requests.md)**: Clarify contradictory, infeasible, or ambiguous requests with structured multiple-choice options before implementing.
 8. **[No Emojis / Dedicated Icons](file:///.agents/rules/no-emojis.md)**: Never use raw emojis in UI, code, or documentation. Use dedicated icon libraries or clean SVGs instead.
+9. **[Maintainability Standards](file:///.agents/rules/maintainability.md)**: Clean code, 30-line function limits, descriptive naming, decoupled configuration, and Plan -> Act -> Verify workflow.
+10. **[Security & Secrets](file:///.agents/rules/security.md)**: Zero hardcoded secrets, input sanitization, safe execution sinks, and least-privilege access.
+11. **[Data & Contracts](file:///.agents/rules/data-and-contracts.md)**: Atomic persistence, safe schema evolution, and predictable boundary contracts.
+12. **[Observability & Diagnostics](file:///.agents/rules/observability.md)**: Structured diagnostics, contextual logging, health verification, and zero silent failures.
 
 ---
 

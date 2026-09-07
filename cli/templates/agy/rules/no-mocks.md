@@ -22,9 +22,10 @@ Prioritize tests against **real implementations**, actual database engines (e.g.
    - Use in-memory SQLite / test databases / isolated test schemas instead of mocking ORM calls.
    - Use real HTTP servers spinning up on random ports for API tests.
 
-3. **When Mocking Is Strictly Permitted**
-   - Only mock external 3rd-party services with monetary costs or rate limits (e.g. Stripe charges, SMS sending, 3rd-party OAuth, external LLM API calls).
-   - Use fake servers or recorded fixtures (like MSW, wiremock, or VCR) rather than mocking deep internal code functions.
+3. **When Fakes or Mocks Are Permitted**
+   - External third-party services with monetary costs or rate limits (e.g., payment gateways, SMS delivery, OAuth providers, LLM APIs).
+   - Physical hardware, sensors, and OS-level services (e.g., Bluetooth peripherals, GPS location, camera sensors, biometric prompts) where real devices are absent in CI environments.
+   - Prefer lightweight in-memory fakes or contract fixtures over brittle, deep internal function mocking.
 
 4. **Verify The Contract**
    - If a mock or fake must be used for an external provider, validate the fake's schema against the provider's real OpenAPI / JSON Schema definition.

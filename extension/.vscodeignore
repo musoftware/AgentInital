@@ -5,3 +5,5 @@ src/**/*.map
 .git/**
 .gitignore
 scripts/**
+*.vsix
+../**

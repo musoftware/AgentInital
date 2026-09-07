@@ -127,6 +127,10 @@ async function addSingleRule(context) {
     if (file === 'code-standards.md') description = 'Type safety, defensive error handling';
     if (file === 'handling-illogical-requests.md') description = 'Clarify illogical or ambiguous requests with multiple-choice options';
     if (file === 'no-emojis.md') description = 'No raw emojis, use dedicated icon libraries';
+    if (file === 'maintainability.md') description = 'Clean code, function limits, naming, and config standards';
+    if (file === 'security.md') description = 'Secrets management, input sanitization, and auth security';
+    if (file === 'data-and-contracts.md') description = 'Atomic persistence, schema evolution, and typed contracts';
+    if (file === 'observability.md') description = 'Structured diagnostics, contextual logging, and health checks';
 
     return {
       label: file,

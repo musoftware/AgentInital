@@ -20,5 +20,5 @@ Write reliable, defensive, secure, and production-ready code. Always test and ve
 - Follow idiomatic conventions for the language and framework in use.
 
 ## 4. Verification & Testing
-- Always verify changes locally before committing.
-- Check linter and build status (`npm run build`, `npm run lint`, etc.).
+- Always verify changes locally before completing a task.
+- Run the project's native build, compiler, and linter commands (e.g., `cargo check / cargo test`, `dotnet build / dotnet test`, `flutter analyze / flutter test`, `go test / go vet`, `npm run build / npm test`, `pytest / mypy`).

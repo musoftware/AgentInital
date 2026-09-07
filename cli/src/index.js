@@ -39,6 +39,10 @@ ${colors.bold}INCLUDED RULES:${colors.reset}
   ${colors.dim}•${colors.reset} code-standards.md   Type safety, defensive error handling, verification
   ${colors.dim}•${colors.reset} handling-illogical-requests.md  Clarify illogical/ambiguous requests with options
   ${colors.dim}•${colors.reset} no-emojis.md         No raw emojis, use dedicated icon libraries
+  ${colors.dim}•${colors.reset} maintainability.md   Clean code, function limits, naming, and config standards
+  ${colors.dim}•${colors.reset} security.md          Secrets management, input sanitization, and auth security
+  ${colors.dim}•${colors.reset} data-and-contracts.md Atomic persistence, schema evolution, and typed contracts
+  ${colors.dim}•${colors.reset} observability.md     Structured diagnostics, contextual logging, and health checks
   ${colors.dim}•${colors.reset} AGENTS.md           Master agent guidelines file
 
 ${colors.bold}EXAMPLES:${colors.reset}
