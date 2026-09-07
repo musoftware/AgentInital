@@ -95,7 +95,7 @@
   },
   "scripts": {
     "vscode:prepublish": "node ./scripts/sync-templates.js",
-    "package": "vsce package --allow-missing-repository"
+    "package": "npx @vscode/vsce package --allow-missing-repository"
   },
   "devDependencies": {
     "@types/vscode": "^1.74.0",

@@ -12,7 +12,7 @@
     "cli:link": "cd cli && npm link",
     "sync:all": "node scripts/sync-all.js",
     "build": "node scripts/sync-all.js",
-    "extension:package": "npm --prefix extension run package",
+    "extension:package": "cd extension && npx @vscode/vsce package --allow-missing-repository",
     "extension:install:agy": "antigravity-ide --install-extension extension/aigent-vscode-1.1.0.vsix --force"
   },
   "keywords": [
