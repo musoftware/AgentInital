@@ -182,3 +182,85 @@ The site must work at the same quality on mobile (360px), tablet, and desktop.
 - Buttons use action verbs: "Submit Application", "Start Free Trial" — not "OK" or "Submit."
 - One H1 per page. Short paragraphs (3–5 lines). Numbered or bulleted lists for sequential information.
 - Never use filler text that adds no meaning.
+
+---
+
+## 17. Nielsen's 10 Usability Heuristics — Full Reference
+
+These 10 principles evaluate any interface. Every screen must satisfy all of them.
+
+**1. Visibility of System Status**
+The user always knows what the system is doing right now — during the action, not before or after.
+
+This is NOT a colored pill badge labeled "Active" or "Online." That is a decoration, not status.
+
+Real system status means:
+- While a task is running: a live counter incrementing ("Sent 47 of 200"), a progress bar moving, or a log line appearing in real time.
+- While data is loading: a skeleton loader that matches the shape of the content — not a blank screen or a generic spinner.
+- While a step-by-step flow is in progress: a step indicator ("Step 2 of 5") that updates as the user moves forward.
+- After an operation completes: a clear result ("Done — 142 messages sent. 3 failed.") — not silence.
+- The Start button becomes disabled and changes label ("Running...") while a task is active. The Stop button becomes enabled. The user can always tell whether something is running or not — without guessing.
+
+The UI must never look idle while a background task is active.
+
+**2. Match Between System and the Real World**
+Speak the user's language — not the system's language.
+- Use words the user knows: "Your order" not "Transaction record."
+- Use real-world metaphors: a trash icon means delete, a folder icon means a collection.
+- Error messages use plain language: "Your session expired. Please log in again." — not "401 Unauthorized."
+
+**3. User Control and Freedom**
+Give the user an exit from every action without penalty.
+- Every multi-step form has a visible Back button.
+- Destructive actions have an Undo option or a grace period before executing.
+- Modals and dialogs always have a visible close control (X button or Cancel).
+- Never trap the user in a flow with no escape.
+
+**4. Consistency and Standards**
+Same element, same label, same behavior — everywhere.
+- A Save button is always labeled "Save," always in the same color, always in the same position.
+- Icons carry fixed meanings. Never repurpose an icon for a different action on a different screen.
+- Design tokens (colors, spacing, type sizes) come from one shared source. Never apply values ad hoc.
+
+**5. Error Prevention**
+Prevent errors before they happen — this is more valuable than good error messages.
+- Disable the submit button until required fields are valid.
+- Show character limits before the user hits them, not after.
+- Show a confirmation dialog before any irreversible action: "Delete this campaign? This cannot be undone."
+- Use smart defaults: pre-fill known values, suggest the most likely option.
+
+**6. Recognition Rather Than Recall**
+Do not force the user to remember information from a previous screen.
+- Show the user's previous selections inline, not in a separate review screen.
+- Show recent or saved items in search and form fields.
+- Breadcrumbs on deep pages so the user always knows their path.
+- Labels stay visible on form fields — never replace them with placeholder-only inputs.
+
+**7. Flexibility and Efficiency of Use**
+Support both beginners and power users.
+- Keyboard shortcuts for frequent actions (Ctrl+S, Ctrl+Enter, Escape).
+- Bulk actions for users who work with large data sets.
+- Advanced filters available but collapsed by default — visible to expert users without cluttering beginner views.
+- Quick-access shortcuts or pinned actions for the most common tasks.
+
+**8. Aesthetic and Minimalist Design**
+Remove anything that does not serve the current goal.
+- Every element on a screen must earn its place. If removing it does not hurt the user, remove it.
+- Do not add decorative elements, stock illustrations, or filler text to fill empty space.
+- Information hierarchy: the most important content gets the most visual weight. Secondary content recedes.
+- Noise reduces signal. The fewer elements compete for attention, the clearer the primary action becomes.
+
+**9. Help Users Recognize, Diagnose, and Recover From Errors**
+Error messages are a last resort — make them genuinely useful.
+- Place error text directly next to the field or action that caused it.
+- State what went wrong in plain language.
+- State how to fix it: "Enter a valid email address (example: name@domain.com)."
+- Provide a direct action to recover: Retry, Go Back, or Contact Support.
+- Never show a generic "Something went wrong" without a next step.
+
+**10. Help and Documentation**
+If the interface requires explanation, the explanation must be easy to find and act on.
+- Contextual help: tooltip or inline hint next to complex fields.
+- Help content answers task-based questions: "How do I add a team member?" — not "About the Users module."
+- Empty states explain what to do: "No campaigns yet. Create your first campaign to get started." with a direct action button.
+- Error states link to relevant help: "Payment failed. See why payments fail →"
