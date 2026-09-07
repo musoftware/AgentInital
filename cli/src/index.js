@@ -43,6 +43,13 @@ ${colors.bold}INCLUDED RULES:${colors.reset}
   ${colors.dim}•${colors.reset} security.md          Secrets management, input sanitization, and auth security
   ${colors.dim}•${colors.reset} data-and-contracts.md Atomic persistence, schema evolution, and typed contracts
   ${colors.dim}•${colors.reset} observability.md     Structured diagnostics, contextual logging, and health checks
+  ${colors.dim}•${colors.reset} anti-nesting.md      Max 2 levels nesting, guard clauses, and flat execution
+  ${colors.dim}•${colors.reset} flat-conditionals.md Table-driven logic, lookup tables, and handler dispatch
+  ${colors.dim}•${colors.reset} simplicity-first.md   Pure functions, flat architecture, composition over inheritance
+  ${colors.dim}•${colors.reset} yagni-kiss.md        Build only what is needed, rule of three, no premature abstractions
+  ${colors.dim}•${colors.reset} immutability.md      Zero shared mutable state, pure functions, and explicit effect verbs
+  ${colors.dim}•${colors.reset} naming-and-dead-code.md Intent-revealing names, zero dead/commented code, clean imports
+  ${colors.dim}•${colors.reset} dependency-direction.md Inversion of control, Law of Demeter, and Ports & Adapters
   ${colors.dim}•${colors.reset} AGENTS.md           Master agent guidelines file
 
 ${colors.bold}EXAMPLES:${colors.reset}

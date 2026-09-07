@@ -18,6 +18,13 @@ Detailed rules are maintained in individual markdown files under `.agents/rules/
 10. **[Security & Secrets](file:///.agents/rules/security.md)**: Zero hardcoded secrets, input sanitization, safe execution sinks, and least-privilege access.
 11. **[Data & Contracts](file:///.agents/rules/data-and-contracts.md)**: Atomic persistence, safe schema evolution, and predictable boundary contracts.
 12. **[Observability & Diagnostics](file:///.agents/rules/observability.md)**: Structured diagnostics, contextual logging, health verification, and zero silent failures.
+13. **[Anti-Nesting & Flat Code](file:///.agents/rules/anti-nesting.md)**: Max 2 levels of nesting, mandatory guard clauses, early returns, and no arrow antipatterns.
+14. **[Flat Conditionals](file:///.agents/rules/flat-conditionals.md)**: Replace long if/else ladders with lookup tables, dictionary dispatch, and pipeline evaluators.
+15. **[Simplicity First](file:///.agents/rules/simplicity-first.md)**: Pure functions over heavy OOP, flat execution, composition over inheritance, and isolated side effects.
+16. **[YAGNI & KISS](file:///.agents/rules/yagni-kiss.md)**: Build only what is needed today, rule of three, delete dead code, and avoid over-engineering.
+17. **[Immutability & Pure Functions](file:///.agents/rules/immutability.md)**: Zero shared mutable state, immutable collections, pure functions by default, and explicit mutation verbs.
+18. **[Naming & Dead Code Hygiene](file:///.agents/rules/naming-and-dead-code.md)**: Intent-revealing names, zero dead/commented code, clean imports, and the Boy Scout rule.
+19. **[Dependency Direction](file:///.agents/rules/dependency-direction.md)**: Depend on abstractions not concretions, Law of Demeter, and Ports & Adapters architecture.
 
 ---
 

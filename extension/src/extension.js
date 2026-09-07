@@ -131,6 +131,13 @@ async function addSingleRule(context) {
     if (file === 'security.md') description = 'Secrets management, input sanitization, and auth security';
     if (file === 'data-and-contracts.md') description = 'Atomic persistence, schema evolution, and typed contracts';
     if (file === 'observability.md') description = 'Structured diagnostics, contextual logging, and health checks';
+    if (file === 'anti-nesting.md') description = 'Max 2 levels nesting, guard clauses, and flat execution';
+    if (file === 'flat-conditionals.md') description = 'Table-driven logic, lookup tables, and handler dispatch';
+    if (file === 'simplicity-first.md') description = 'Pure functions, flat architecture, composition over inheritance';
+    if (file === 'yagni-kiss.md') description = 'Build only what is needed, rule of three, no premature abstractions';
+    if (file === 'immutability.md') description = 'Zero shared mutable state, pure functions, and explicit effect verbs';
+    if (file === 'naming-and-dead-code.md') description = 'Intent-revealing names, zero dead/commented code, clean imports';
+    if (file === 'dependency-direction.md') description = 'Inversion of control, Law of Demeter, and Ports & Adapters';
 
     return {
       label: file,

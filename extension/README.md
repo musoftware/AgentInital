@@ -8,7 +8,7 @@ An extension for **Google Antigravity IDE** and **VS Code** that lets you initia
 
 - **One-Click Rule Initialization**: Generates `.agents/rules/*.md` and `AGENTS.md`.
 - **Right-Click Context Menu**: Right-click any folder in the Explorer to initialize rules there.
-- **Rule Picker**: Add individual rules (`simple-english.md`, `no-pills.md`, `dry.md`, `solid.md`, `no-mocks.md`, `code-standards.md`, `handling-illogical-requests.md`, `no-emojis.md`, `maintainability.md`, `security.md`, `data-and-contracts.md`, `observability.md`).
+- **Rule Picker**: Add individual rules (`simple-english.md`, `no-pills.md`, `dry.md`, `solid.md`, `no-mocks.md`, `code-standards.md`, `handling-illogical-requests.md`, `no-emojis.md`, `maintainability.md`, `security.md`, `data-and-contracts.md`, `observability.md`, `anti-nesting.md`, `flat-conditionals.md`, `simplicity-first.md`, `yagni-kiss.md`, `immutability.md`, `naming-and-dead-code.md`, `dependency-direction.md`).
 - **Antigravity & VS Code Compatible**: Works identically in both environments.
 
 ---

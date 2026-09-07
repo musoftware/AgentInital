@@ -31,7 +31,14 @@ AgentInital/
 │           │   ├── maintainability.md
 │           │   ├── security.md
 │           │   ├── data-and-contracts.md
-│           │   └── observability.md
+│           │   ├── observability.md
+│           │   ├── anti-nesting.md
+│           │   ├── flat-conditionals.md
+│           │   ├── simplicity-first.md
+│           │   ├── yagni-kiss.md
+│           │   ├── immutability.md
+│           │   ├── naming-and-dead-code.md
+│           │   └── dependency-direction.md
 │           └── AGENTS.md
 ├── package.json                  # Monorepo root with npm workspaces
 └── README.md
@@ -55,6 +62,13 @@ AgentInital/
 | `.agents/rules/security.md` | Zero hardcoded secrets, input sanitization, safe execution sinks, and least privilege |
 | `.agents/rules/data-and-contracts.md` | Atomic persistence, safe schema evolution, and predictable boundary contracts |
 | `.agents/rules/observability.md` | Structured diagnostics, contextual logging, health verification, and zero silent failures |
+| `.agents/rules/anti-nesting.md` | Max 2 levels nesting, mandatory guard clauses, and early returns |
+| `.agents/rules/flat-conditionals.md` | Table-driven logic, lookup tables, dictionary dispatch, and pipeline evaluators |
+| `.agents/rules/simplicity-first.md` | Pure functions over heavy OOP, flat execution, composition over inheritance, and isolated side effects |
+| `.agents/rules/yagni-kiss.md` | Build only what is needed, rule of three, delete dead code, and avoid over-engineering |
+| `.agents/rules/immutability.md` | Zero shared mutable state, immutable collections, pure functions, and explicit mutation verbs |
+| `.agents/rules/naming-and-dead-code.md` | Intent-revealing names, zero dead/commented code, clean imports, and the Boy Scout rule |
+| `.agents/rules/dependency-direction.md` | Depend on abstractions not concretions, Law of Demeter, and Ports & Adapters architecture |
 | `AGENTS.md` | Root index file connecting and referencing all rules |
 
 ---
