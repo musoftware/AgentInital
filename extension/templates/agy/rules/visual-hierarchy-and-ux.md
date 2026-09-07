@@ -1,71 +1,99 @@
-# Visual Hierarchy & UX Standards
+# Visual Hierarchy & UX Standards (Desktop & Mobile Apps)
 
 ## Core Rule
-Visual hierarchy must guide the user's focus effortlessly using scale, contrast, proximity, and spacing—not visual noise or decorative boxes. Every interface must have a single primary action, immediate state feedback, and zero dead ends.
+Visual hierarchy guides the user's eye using size, contrast, proximity, and color — not decorative noise. Every screen must have a single clear primary action, permanent state feedback, and no dead ends.
 
 ---
 
-## 1. The 3-Level Typographic Hierarchy
-- **Level 1 (Primary / Focal Point)**: Page title, primary modal header, or key metric value (e.g., 24px–32px, bold/semibold, highest contrast).
-- **Level 2 (Secondary / Structural)**: Section headers, card titles, column labels, and active values (e.g., 16px–18px, medium/semibold).
-- **Level 3 (Tertiary / Contextual)**: Body copy, field descriptions, captions, and metadata (e.g., 13px–15px, regular, muted text).
-- **The 3-Size Rule**: Use no more than 3 distinct font sizes within a single component or content card.
-- **Differentiate by Weight and Tone**: Use font weight (semibold vs regular) and contrast (primary text vs muted text) to create separation before changing font sizes.
+## 1. Screen-Level Layout Zones
+
+Every action screen splits into fixed functional zones. Never mix zones.
+
+- **Left (Context)**: Who or what is the subject? Account selector, source list, or session info. Always visible — never hidden in a dropdown or collapsible panel.
+- **Top (Input)**: What data does this action need? File upload, URL input, count display, and quick controls.
+- **Center (Results)**: Live output. The running log, data table, or progress list. Background stays neutral — no colored panels here.
+- **Bottom (Actions)**: Start, Stop, Delay, and settings. Colored background to visually separate this zone from the results area.
+
+Layout direction follows the natural work order: **top → center → bottom**, **left → right**.
 
 ---
 
-## 2. Spacing & Proximity (Gestalt Law)
-- **Proximity Defines Relationship**: Place related items close together (4px–8px gap) and separate distinct sections with generous whitespace (24px–32px gap).
-- **Whitespace Over Borders**: Use whitespace and layout proximity as the primary grouping mechanism before adding nested borders, cards, or background fills.
-- **Consistent Spacing Scale**: Stick strictly to a 4px / 8px spacing scale (4px, 8px, 12px, 16px, 24px, 32px, 48px, 64px). Never use arbitrary pixel values like `17px` or `29px`.
+## 2. Entry-Point Screens (Launcher / Menu)
+
+When a screen is a top-level menu:
+- Use **large buttons** with the icon on top and a short label below. No nested menus or toolbars at this level.
+- Buttons are **equal in size** by default. If one action is used far more than others, give it double the width — size alone communicates priority.
+- Keep the window **fixed size**, centered on screen. Do not add resize support unless the layout is designed for it. Resizing breaks fixed proportions.
 
 ---
 
-## 3. Action Hierarchy & The Single Primary CTA
-- **One Primary Action per View**: Provide only one dominant call-to-action button on any screen, section, or modal dialog.
-- **Secondary Actions Stay Quiet**: Use neutral borders, subtle ghost buttons, or muted text for secondary and tertiary actions (e.g., "Cancel", "Back", "Export").
-- **Destructive Action Isolation**: Style destructive actions (e.g., "Delete", "Revoke") in subdued red/destructive tones, separate them from primary creation flows, and require confirmation.
-- **Scanning Placement**: Place primary actions where natural scanning concludes (bottom-right for step-by-step forms and dialogs; top-right or sticky header for workspace toolbars).
+## 3. Typography — 3 Levels Only
+
+- **Level 1**: Window title, form section header, key status value. Largest, highest contrast.
+- **Level 2**: Group label, column header, active field label. Medium size, semibold.
+- **Level 3**: Body text, descriptions, metadata, counts. Smallest, muted color.
+
+Use no more than 3 distinct font sizes in any single window. Differentiate using **weight** and **contrast** before increasing size.
 
 ---
 
-## 4. Visual Weight & Scannability
-- **Reserve High Accent Colors for Intent**: Use primary brand or accent colors strictly for active selections, interactive links, and the primary call-to-action. Never use accent colors as background decoration.
-- **Align for Scanning Paths**:
-  - Use F-patterns for text-heavy content, lists, and data tables.
-  - Use Z-patterns for landing pages, modal overviews, and card summaries.
-- **Consistent Text Alignment**: Keep body copy, labels, and table cells left-aligned (or right-aligned for numerical data and currency). Never center-align paragraphs or multi-line forms.
+## 4. Spacing & Grouping
+
+- **Proximity = relationship**: Keep related controls close (4–8px). Separate distinct sections with clear space (16–24px).
+- **Group and label sections**: Use a visible border or background + a section title to group related controls. Never scatter controls in an unlabeled flat area.
+- **Always show live counts**: Any loaded data must show its count immediately next to the relevant controls. The user must never wonder "did anything load?"
 
 ---
 
-## 5. Interaction States & Immediate Feedback
-- **5 Mandatory States**: Every interactive control (button, input, row, card) must define 5 distinct visual states:
-  1. Default (idle)
-  2. Hover (cursor over element)
-  3. Active (mouse pressed down / tap)
-  4. Focus-visible (keyboard navigation outline)
-  5. Disabled or Loading (reduced opacity, cursor not-allowed, or spinner)
-- **Accessible Keyboard Focus**: Never remove focus outlines (`outline-none`) without providing a distinct, high-contrast replacement ring (`focus-visible:ring-2`).
-- **Snappy Micro-Interactions**: Keep transition durations between 150ms and 200ms with ease-out timing. Avoid sluggish or distracting animations.
+## 5. Button Placement Rules
+
+Placement has fixed meaning — never reverse it:
+
+| Position | Meaning |
+|---|---|
+| Left | Primary action — Start, Upload, Login |
+| Right | Secondary or destructive — Stop, Reset, Delete |
+| Bottom panel | Execution controls — Start, Stop, Delay settings |
+| Top panel | Data controls — Upload, Clear, Count display |
+
+- **Destructive actions** (Delete, Reset, Revoke): place on the right, use a subdued destructive color, and require confirmation before executing.
 
 ---
 
-## 6. Form Ergonomics & Error Prevention
-- **Persistent Top Labels**: Always place field labels above inputs. Never rely solely on placeholder text that disappears when typing starts.
-- **Validation Timing**: Validate fields on blur (`onBlur`) or after form submission. Do not show error states while the user is actively typing their first entry.
-- **Actionable Error Messages**: Place error text directly below the invalid input field in high-contrast red text. Explain exactly what went wrong and how to fix it (e.g., "Enter an email with an @ symbol" instead of "Invalid input").
-- **Safe Click Targets**: Ensure interactive targets meet minimum touch sizes (minimum 44px × 44px on mobile, 36px on desktop).
+## 6. Color — Functional, Not Decorative
+
+- Use a **distinct background color** only on active control zones (top input panel, bottom action panel). The results area stays neutral.
+- The color contrast tells the user: "these panels are where you act — the center is where you watch."
+- Reserve accent colors for active states and the primary action button only. Never use them as decorative fills.
 
 ---
 
-## 7. Progressive Disclosure & Cognitive Load
-- **Limit Initial Choices**: Show only essential options first. Reveal advanced settings, deep filters, or secondary parameters on demand using tabs, accordions, or disclosure panels.
-- **Chunk Complex Workflows**: Break lengthy multi-field tasks into clear, numbered steps or sequential stages with visible progress indicators.
-- **Reversible Actions**: Provide an "Undo" toast or grace period for non-destructive operations. Provide an explicit modal check for irreversible deletions.
+## 7. Interaction States
+
+Every interactive control must define these states visually:
+
+1. **Default** — idle, ready
+2. **Hover** — highlight or slight color shift
+3. **Active / Pressed** — clear visual press feedback
+4. **Disabled** — reduced opacity, not clickable
+5. **Running / Loading** — progress indicator or button label change (e.g., "Running..." with a spinner)
+
+Running operations must show continuous feedback — a progress bar, a live log, or a counter incrementing. Never leave the screen looking idle while a background task is active.
 
 ---
 
-## 8. Graceful System States (Zero Dead Ends)
-- **Loading Skeletons**: Use structural skeleton loaders matching the layout instead of generic centered spinning wheels or blank white screens.
-- **Empty States with Direct Actions**: When a list or table is empty, show a clean outline icon, a short 1-sentence explanation, and a primary button to create or import the first record.
-- **Clear Recovery Paths on Error**: If a request or operation fails, display the error clearly with a prominent "Retry" or "Return to Dashboard" button. Never leave the user stuck.
+## 8. Form Controls
+
+- Place labels **above** inputs, not only inside them as placeholder text.
+- Show validation errors **below** the relevant field, in red, with a clear message — not just "Invalid".
+- Minimum control height: **32px desktop / 44px mobile**. Never use controls smaller than this.
+- Group related inputs inside a named section. Do not mix unrelated inputs in the same row.
+
+---
+
+## 9. System States — No Dead Ends
+
+- **Empty list**: Show a short message explaining why it is empty and what the user should do next. Add a direct action button (e.g., "Upload a file to start").
+- **Operation failed**: Display the error in plain language. Provide a "Retry" button. Never leave the user on a broken screen with no way forward.
+- **Operation complete**: Show a clear success message with the result count (e.g., "Done — 142 messages sent").
+- **Operation running**: Show a live counter or progress bar. Disable the Start button. Enable the Stop button.

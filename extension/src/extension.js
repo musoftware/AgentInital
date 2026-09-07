@@ -19,9 +19,97 @@ function getTemplatesDir(context) {
 }
 
 /**
- * Initialize all rules in the target workspace directory
+ * Rules that belong to each project category.
+ * null means "copy all available rules".
  */
-async function initializeRules(targetUri, context, force = false) {
+const RULE_CATEGORIES = {
+  'Desktop App': [
+    'simple-english.md',
+    'handling-illogical-requests.md',
+    'dry.md',
+    'solid.md',
+    'no-mocks.md',
+    'code-standards.md',
+    'maintainability.md',
+    'security.md',
+    'data-and-contracts.md',
+    'observability.md',
+    'anti-nesting.md',
+    'flat-conditionals.md',
+    'simplicity-first.md',
+    'yagni-kiss.md',
+    'immutability.md',
+    'naming-and-dead-code.md',
+    'dependency-direction.md'
+  ],
+  'Mobile App': [
+    'simple-english.md',
+    'handling-illogical-requests.md',
+    'dry.md',
+    'solid.md',
+    'no-mocks.md',
+    'code-standards.md',
+    'maintainability.md',
+    'security.md',
+    'data-and-contracts.md',
+    'observability.md',
+    'anti-nesting.md',
+    'flat-conditionals.md',
+    'simplicity-first.md',
+    'yagni-kiss.md',
+    'immutability.md',
+    'naming-and-dead-code.md',
+    'dependency-direction.md',
+    'no-pills.md',
+    'no-emojis.md',
+    'visual-hierarchy-and-ux.md'
+  ],
+  'Web App': [
+    'simple-english.md',
+    'handling-illogical-requests.md',
+    'dry.md',
+    'solid.md',
+    'no-mocks.md',
+    'code-standards.md',
+    'maintainability.md',
+    'security.md',
+    'data-and-contracts.md',
+    'observability.md',
+    'anti-nesting.md',
+    'flat-conditionals.md',
+    'simplicity-first.md',
+    'yagni-kiss.md',
+    'immutability.md',
+    'naming-and-dead-code.md',
+    'dependency-direction.md',
+    'no-pills.md',
+    'no-emojis.md',
+    'visual-hierarchy-web.md'
+  ],
+  'All Rules': null
+};
+
+/**
+ * Show a category picker then initialize only the matching rules.
+ */
+async function pickCategoryAndInit(targetUri, context, force = false) {
+  const categoryItems = Object.keys(RULE_CATEGORIES).map(label => ({ label }));
+
+  const picked = await vscode.window.showQuickPick(categoryItems, {
+    placeHolder: 'Select the project type to initialize rules for'
+  });
+
+  if (!picked) return;
+
+  const allowedFiles = RULE_CATEGORIES[picked.label];
+  return initializeRules(targetUri, context, force, allowedFiles);
+}
+
+/**
+ * Copy rules (and AGENTS.md) into the target workspace.
+ * allowedFiles — array of filenames to copy, or null to copy all.
+ */
+async function initializeRules(targetUri, context, force = false, allowedFiles = null) {
   let targetPath;
 
   if (targetUri && targetUri.fsPath) {
@@ -55,24 +143,22 @@ async function initializeRules(targetUri, context, force = false) {
   let createdCount = 0;
   let skippedCount = 0;
 
-  // Copy individual rule files
   if (fs.existsSync(rulesTemplateDir)) {
-    const files = fs.readdirSync(rulesTemplateDir);
-    for (const file of files) {
-      if (file.endsWith('.md')) {
-        const destFile = path.join(targetRulesDir, file);
-        if (fs.existsSync(destFile) && !force) {
-          skippedCount++;
-        } else {
-          const content = fs.readFileSync(path.join(rulesTemplateDir, file), 'utf8');
-          fs.writeFileSync(destFile, content, 'utf8');
-          createdCount++;
-        }
+    const allFiles = fs.readdirSync(rulesTemplateDir).filter(f => f.endsWith('.md'));
+    const filesToCopy = allowedFiles ? allFiles.filter(f => allowedFiles.includes(f)) : allFiles;
+
+    for (const file of filesToCopy) {
+      const destFile = path.join(targetRulesDir, file);
+      if (fs.existsSync(destFile) && !force) {
+        skippedCount++;
+      } else {
+        const content = fs.readFileSync(path.join(rulesTemplateDir, file), 'utf8');
+        fs.writeFileSync(destFile, content, 'utf8');
+        createdCount++;
       }
     }
   }
 
-  // Copy root AGENTS.md
   if (fs.existsSync(agentsTemplateFile)) {
     if (fs.existsSync(targetAgentsMd) && !force) {
       skippedCount++;
@@ -282,11 +368,11 @@ function auditCurrentFile() {
  */
 function activate(context) {
   const initCmd = vscode.commands.registerCommand('aigent.init', (uri) => {
-    return initializeRules(uri, context, false);
+    return pickCategoryAndInit(uri, context, false);
   });
 
   const initForceCmd = vscode.commands.registerCommand('aigent.initForce', (uri) => {
-    return initializeRules(uri, context, true);
+    return pickCategoryAndInit(uri, context, true);
   });
 
   const addSingleRuleCmd = vscode.commands.registerCommand('aigent.addSingleRule', () => {
